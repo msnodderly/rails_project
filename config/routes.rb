@@ -4,6 +4,6 @@ CourseProject::Application.routes.draw do
 
   root to: "posts#index"
 
-  match 'post/:id' => 'posts#show'
+  match 'post/:id' => 'posts#show', :as => :post
 
 end
