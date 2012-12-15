@@ -1,6 +1,6 @@
 CourseProject::Application.routes.draw do
-  resources :posts
-  #get "posts/new"
+  #  create all 7 get/post/put route types
+#  resources :posts
 
-  root to: "main#index"
+  root to: "posts#index"
 end
