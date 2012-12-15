@@ -1,9 +1,13 @@
 <h1>Comments</h1>
-<% domain = @post.url.gsub("http://","") %>
-<div class="well">
-  <p class="lead"> <%= link_to @post.title, @post.url %> </>
-  <p class="muted" style="margin-top: -15px;">(<%= domain %>)</p> 
-  <strong> <%= "#{@post.comments.count} #{@post.comments.count == 1 ? "comment" : "comments"}" %></strong>
+<% domain = @post.url.split("/")[2] %>
+<div class="container">
+  <div class="row well">
+    <div class="span-4 "><%= link_to @post.title, @post.url %></div>
+      <div class="span-4 muted">(<%= domain %>)</div> <br>
+      <div class="span-4 pull-left"><strong> <%= "#{@post.comments.count} #{@post.comments.count == 1 ? "comment" : "comments"}" %></strong></div>
+    </div>
+
+  </div>
 </div>
 <br>
 <br>
