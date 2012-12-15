@@ -1,7 +1,6 @@
+== Rails Project App. 
 
-Rails Project App. 
-
-Latest version is running here: http://matts-railstutors-app.herokuapp.com/
+Latest version is running here: http://matts-railstutors-app.herokuapp.com
 
 
 -Matt S. 12/14/2012
