@@ -1,0 +1,19 @@
+<h1>Comments</h1>
+<% domain = @post.url.gsub("http://","") %>
+<div class="well">
+  <p class="lead"> <%= link_to @post.title, @post.url %> </>
+  <p class="muted" style="margin-top: -15px;">(<%= domain %>)</p> 
+  <strong> <%= "#{@post.comments.count} #{@post.comments.count == 1 ? "comment" : "comments"}" %></strong>
+</div>
+<br>
+<br>
+<table class="table">
+  <tbody>
+  <% @post.comments.each do |comment| %>
+    <tr>
+      <td><blockquote><%= comment.content %></blockquote></td>
+    </tr> 
+  <% end %>
+  </tbody>
+</table>
+

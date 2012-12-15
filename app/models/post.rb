@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :url
+  attr_accessible :title, :url, :id
   validates :title,  presence: true
   validates :url,  presence: true
 

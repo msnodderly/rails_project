@@ -1,7 +1,14 @@
 <h1>Posts</h1>
-<ul> 
+<table class="table table-condensed table-striped">
+  <tbody>
   <% @posts.each do |post| %>
-    <% domain = post.url.gsub("http://","") %>
-    <li> <%= link_to post.title, post.url %> (<%= domain %>) <br>(<%= post.comments.count %> comments)</li>
+    <tr>
+      <td>
+        <% domain = post.url.gsub("http://","")  %>
+        <p class="lead"><%= link_to post.title, post.url %></h2>
+        <p class="muted" style="margin-top:-15px">(<%= domain %>)</p> 
+        <span class="badge badge-info"> <%= link_to "#{post.comments.count} #{post.comments.count == 1 ? "comment" : "comments"}", post, {:style=>'color:#FFFFFF;'} %></span>
+    </td></tr>
   <% end %>
-</ul>  
+  </tbody>
+</table>
