@@ -8,7 +8,7 @@
         <div class="span-4 muted" >(<%= domain %>)</div><br>
 
         <div class="span-4 badge <%= "badge-info" if post.comments.count > 0 %>" >
-          <%= link_to "#{post.comments.count} #{post.comments.count == 1 ? "comment" : "comments"}", post, {:style=>'color:#FFFFFF; '} %>
+          <%= link_to "#{pluralize(post.comments.count, 'comment')}" , post, {:style=>'color:#FFFFFF; '} %>
         </div>
       </td>
     </tr>

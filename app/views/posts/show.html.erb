@@ -4,7 +4,7 @@
   <div class="well">
       <div style="margin-bottom: 5px;" class="lead"><%= link_to @post.title, @post.url %></div>
       <div class="muted" >(<%= domain %>)</div>
-      <div class="pull-left"><strong> <%= "#{@post.comments.count} #{@post.comments.count == 1 ? "comment" : "comments"}" %></strong></div>
+      <div class="pull-left"><strong> <%= pluralize(@post.comments.count, "comment") %></strong></div>
   </div>
 </div>
 <br>
