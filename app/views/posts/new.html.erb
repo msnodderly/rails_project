@@ -1,2 +1,9 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Submit a new link</h1>
+
+<%= form_for @post, :url => { :action => "create" } do |f| %>
+  <%= f.label(:url, "URL") %>
+  <%= f.text_field :url %>
+  <%= f.label(:title, "Title") %>
+  <%= f.text_field :title  %>
+  <%= f.submit "Submit Link" %>
+<% end %>
