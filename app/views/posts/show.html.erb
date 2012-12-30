@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<%= form_for @comment , :url => { :action => "create_comment" } do |f| %>
+<%= form_for @comment , :url => { :action => :create, :controller => :comments} do |f| %>
   <%= f.label(:content, "Leave a new comment") %>
   <%= f.text_field :content %>
   <%= f.submit "Submit Comment" %>
