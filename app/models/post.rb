@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   validates :url,  presence: true
 
   has_many :comments
+  has_many :votes
   
   before_create :generate_slug
 
