@@ -8,6 +8,10 @@ class Post < ActiveRecord::Base
   
   before_create :generate_slug
 
+  def points
+    votes.inject(0) { |sum, t| sum + t.vote }
+  end
+
   def to_param
     slug
   end
