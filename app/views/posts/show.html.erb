@@ -1,5 +1,7 @@
 <% domain = @post.url.split("/")[2] %>
       <h1>Comments</h1>
+
+
 <div class="container">
   <div class="well">
       <div style="margin-bottom: 5px;" class="lead"><%= link_to @post.title, @post.url %></div>
@@ -7,8 +9,17 @@
       <div class="pull-left"><strong> <%= pluralize(@post.comments.count, "comment") %></strong></div>
   </div>
 </div>
-<br>
-<br>
+
+<%= form_for @comment , :url => { :action => "create_comment" } do |f| %>
+  <%= f.label(:content, "Leave a new comment") %>
+  <%= f.text_field :content %>
+  <%= f.submit "Submit Comment" %>
+  <%= f.hidden_field(:post_id ) %>
+
+<% end %>
+
+      <br>
+      <br>
 <table class="table">
   <tbody>
   <% @post.comments.each do |comment| %>

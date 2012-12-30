@@ -7,5 +7,6 @@ CourseProject::Application.routes.draw do
   match 'post/:id' => 'posts#show', :as => :post
   match 'submit' => 'posts#new'
   match 'create' => 'posts#create'
+  match 'create_comment' => 'posts#create_comment'
 
 end

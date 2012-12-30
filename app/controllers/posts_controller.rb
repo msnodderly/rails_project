@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   def show
     #@post = Post.find(params[:id])
     @post = Post.where(slug: params[:id]).first
+    @comment = Comment.new
+
   end
 
   def create
@@ -19,8 +21,6 @@ class PostsController < ApplicationController
     else 
       @status = "failed"
     end
-
-    
   end
 
 end
