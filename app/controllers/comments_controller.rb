@@ -10,9 +10,16 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(params[:comment])
-    @post = Post.where(:id => @comment.post_id)
+    @post = Post.where(:id => @comment.post_id).first
     @id = params[:comment]
-    @comment.save
+
+    if @comment.save
+      redirect_to @post
+    else
+      flash[:error] = "You didn't enter a comment!"
+      redirect_to @post
+    end
+
   end
 
 end

@@ -17,9 +17,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     if @post.save 
-      @status = "success"
+      redirect_to @post
     else 
-      @status = "failed"
+      flash[:error] = "There is a problem with your submission"
+      redirect_to :submit
     end
   end
 
