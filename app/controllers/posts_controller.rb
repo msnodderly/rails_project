@@ -23,4 +23,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def create_comment
+    @comment = Comment.new(params[:comment])
+    @id = params[:comment]
+    @comment.save
+  end
+
 end

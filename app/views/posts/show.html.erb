@@ -14,7 +14,7 @@
   <%= f.label(:content, "Leave a new comment") %>
   <%= f.text_field :content %>
   <%= f.submit "Submit Comment" %>
-  <%= f.hidden_field(:post_id ) %>
+  <%= f.hidden_field(:post_id, :value => @post.id) %>
 
 <% end %>
 
