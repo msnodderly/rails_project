@@ -8,8 +8,9 @@
   <% @posts.each do |post| %>
     <tr >
       <td><% domain = post.url.split("/")[2] %>
-          <div class="span-1" ><a href="/"><i class="icon-arrow-up"></i></a></div><br>
-          <div class="span-2" style="margin:5px;"><a href="/"><i class='icon-arrow-down'></i></a></div>
+        <br>
+        <div style="font-size:28px; line-height: 20px;" class="span-1"><a href="/"><i class="icon-sort-up"></i></a></div><p style="margin: -15px">
+          <div style="font-size:28px; line-height: 20px;" class="span-1"><a href="/"><i class="icon-sort-down"></i></a></div>
           <td>
             <div class="span-4 lead "><%= link_to post.title, post.url %>&nbsp;&nbsp;</div>
             <div class="span-4 muted" >(<%= domain %>)</div>&nbsp;
