@@ -15,12 +15,13 @@
           <%= f.hidden_field(:vote, :value => "1") %>
           <%= f.hidden_field(:post_id, :value => post.id ) %>
           <%= f.submit "+", :class => "btn", :style=>'padding: 8px;'   %>
+
         <% end %>
 
         <%= form_for @vote do |f| %>
           <%= f.hidden_field(:vote, :value => "-1") %>
           <%= f.hidden_field(:post_id, :value => post.id ) %>
-          <%= f.submit "-", :class => "btn", :style=>'padding: 8px;'   %>
+          <%= f.submit "- ", :class => "btn", :style=>'padding: 8px;'   %>
         <% end %>
 
 
