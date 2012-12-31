@@ -9,4 +9,8 @@ CourseProject::Application.routes.draw do
   match 'create' => 'posts#create'
   match 'create_comment' => 'comments#create'
 
+  #match 'posts/:slug/votes' => 'votes#create', :as => :post_vote
+  match 'posts/:slug/votes' => 'votes#index', :as => :post_vote
+
+
 end
