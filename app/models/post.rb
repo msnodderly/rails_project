@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
     votes.inject(0) { |sum, t| sum + t.vote }
   end
 
+
   def to_param
     slug
   end
