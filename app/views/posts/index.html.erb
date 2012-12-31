@@ -3,7 +3,7 @@
 <br>
 <br>
 
-<table class="table table-striped">
+<table class="table table-striped table-condensed">
   <tbody>
   <% @posts.sort { |a,b| b.points <=> a.points }.each do |post| %>
     <tr >
@@ -14,13 +14,13 @@
         <%= form_for @vote do |f| %>
           <%= f.hidden_field(:vote, :value => "1") %>
           <%= f.hidden_field(:post_id, :value => post.id ) %>
-          <%= f.submit "vote up", :class => "label" %>
+          <%= f.submit "+", :class => "btn", :style=>'padding: 8px;'   %>
         <% end %>
 
         <%= form_for @vote do |f| %>
           <%= f.hidden_field(:vote, :value => "-1") %>
           <%= f.hidden_field(:post_id, :value => post.id ) %>
-          <%= f.submit "vote down", :class => "label" %>
+          <%= f.submit "-", :class => "btn", :style=>'padding: 8px;'   %>
         <% end %>
 
 
