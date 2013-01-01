@@ -1,0 +1,23 @@
+h1 {
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    line-height: 70px;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+      background-color: #FF9473;
+}
+
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+
+
+.content { 
+          margin-right: 20px;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.90);
+}
+
