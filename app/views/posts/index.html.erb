@@ -8,36 +8,31 @@
   <tbody>
   <% @posts.sort { |a,b| b.points <=> a.points }.each do |post| %>
     <tr >
-      <td><% domain = post.url.split("/")[2] %>
-        <br>
+        <td><% domain = post.url.split("/")[2] %>
+          <%= form_for @vote do |f| %>
+            <%= f.hidden_field(:vote, :value => "1") %>
+            <%= f.hidden_field(:post_id, :value => post.id ) %>
+            <%= f.submit "+", :class => "btn", :style=>'padding: 8px;'   %>
+          <% end %>
 
-
-        <%= form_for @vote do |f| %>
-          <%= f.hidden_field(:vote, :value => "1") %>
-          <%= f.hidden_field(:post_id, :value => post.id ) %>
-          <%= f.submit "+", :class => "btn", :style=>'padding: 8px;'   %>
-
-        <% end %>
-
-        <%= form_for @vote do |f| %>
-          <%= f.hidden_field(:vote, :value => "-1") %>
-          <%= f.hidden_field(:post_id, :value => post.id ) %>
-          <%= f.submit "- ", :class => "btn", :style=>'padding: 8px;'   %>
-        <% end %>
-
-
-          <td>
-            <div class="span-4 lead"><%= link_to post.title, post.url %>&nbsp;&nbsp;</div>
-            <div class="span-4 muted" >(<%= domain %>)</div>&nbsp;
-          
-            <div class="span-4 badge <%= "badge-info" if post.points > 0 %>"<%= "style='color:#ddd'" if post.points < 0%> >
+          <%= form_for @vote do |f| %>
+            <%= f.hidden_field(:vote, :value => "-1") %>
+            <%= f.hidden_field(:post_id, :value => post.id ) %>
+            <%= f.submit "- ", :class => "btn", :style=>'padding: 8px;'   %>
+          <% end %>
+        
+        </td>
+        <td>
+            <div class="lead"><%= link_to post.title, post.url %>&nbsp;&nbsp;</div>
+            <div class="muted" >(<%= domain %>)</div>&nbsp;
+            <br> 
+            <div class="badge <%= "badge-info" if post.points > 0 %>"<%= "style='color:#ddd'" if post.points < 0%> >
               <%= pluralize(post.points, "point") %>
             </div>
-            <div class="span-4 badge <%= "badge-info" if post.comments.count > 0 %> "  >
+            <div class="badge <%= "badge-info" if post.comments.count > 0 %> "  >
               <%= link_to "#{pluralize(post.comments.count, 'comment')}" , post, {:style=>'color:#FFF;'} %>
             </div>
-          </td>
-      </td>
+        </td>
     </tr>
   <% end %>
   </tbody>
