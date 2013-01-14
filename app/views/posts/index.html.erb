@@ -23,7 +23,7 @@
         
         </td>
         <td>
-            <div class="lead"><%= link_to post.title, post.url %>&nbsp;&nbsp;</div>
+            <div class="lead"><%= link_to post.title, display_url(post) %>&nbsp;&nbsp;</div>
             <div class="muted" >(<%= domain %>)</div>&nbsp;
             <br> 
             <div class="badge <%= "badge-info" if post.points > 0 %>"<%= "style='color:#ddd'" if post.points < 0%> >
