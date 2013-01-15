@@ -11,5 +11,9 @@ CourseProject::Application.routes.draw do
 
   match 'votes' => 'votes#create'
 
+  get 'register' => 'users#new', :as => :register
+  resources :users, only: [:create]
+    
+  
 
 end
