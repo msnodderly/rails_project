@@ -12,6 +12,10 @@ CourseProject::Application.routes.draw do
   match 'votes' => 'votes#create'
 
   get 'register' => 'users#new', :as => :register
+  get 'login' => 'sessions#new', :as => :login
+  post 'login' => 'sessions#create', :as => :login
+  get 'logout' => 'sessions#destroy', :as => :logout
+
   resources :users, only: [:create]
     
   
