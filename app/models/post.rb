@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
   validates :title,  presence: true
   validates :url,  presence: true
 
+  validates_format_of :url, :with => /^(http|https?):\/\//,  presence: true
+
+
   has_many :comments
   has_many :votes
 
