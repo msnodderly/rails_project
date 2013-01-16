@@ -24,13 +24,18 @@
         </td>
         <td>
             <div class="lead"><%= link_to post.title, display_url(post) %>&nbsp;&nbsp;</div>
-            <div class="muted" >(<%= domain %>)</div>&nbsp;
+            <div class="muted" style="margin-top: -15px;" >(<%= domain %>)</div>&nbsp;
             <br> 
             <div class="badge <%= "badge-info" if post.points > 0 %>"<%= "style='color:#ddd'" if post.points < 0%> >
               <%= pluralize(post.points, "point") %>
             </div>
             <div class="badge <%= "badge-info" if post.comments.count > 0 %> "  >
               <%= link_to "#{pluralize(post.comments.count, 'comment')}" , post, {:style=>'color:#FFF;'} %>
+            </div>
+            <div>
+              <% if post.user then %>
+              Submitted by <%= post.user.username  %>
+              <% end %>
             </div>
         </td>
     </tr>

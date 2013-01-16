@@ -7,7 +7,13 @@
   <div class="span-16">
       <div style="margin-bottom: 5px;" class="lead"><%= link_to @post.title, @post.url %></div>
       <div class="muted" >(<%= domain %>)</div>
-      <div class="pull-left"><strong> <%= pluralize(@post.comments.count, "comment") %></strong></div>
+      <% if @post.user then %>
+         Submitted by <%= @post.user.username  %>
+      <% end %>
+      <div class="pull-left">
+        <%= pluralize(@post.points, "point") %> |
+        <%= pluralize(@post.comments.count, "comment") %> 
+      </div>
   </div>
 
 </div>
