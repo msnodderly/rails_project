@@ -18,7 +18,9 @@
 
 </div>
       <br>
+
 <div class="span-10">
+      <% if logged_in? then %>
 <%= form_for @comment , :url => { :action => :create, :controller => :comments} do |f| %>
   <%= f.label(:content, "Leave a new comment:") %>
   <%= f.text_area :content, :size => "40x4" %><br>
@@ -26,7 +28,9 @@
   <%= f.hidden_field(:post_id, :value => @post.id) %>
 <% end %>
 </div>
-
+      <% else %>
+        <%= link_to "Login to Leave a Comment", :login, :class => "btn btn-primary" %>
+      <%end%>
       <br>
       <br>
       <br>
@@ -34,7 +38,10 @@
   <tbody>
   <% @post.comments.each do |comment| %>
     <tr>
-      <td><blockquote><%= comment.content %></blockquote></td>
+      
+      <td><strong><%= comment.user.username %>:</strong>
+        <blockquote><%= comment.content %></blockquote>
+      </td>
     </tr> 
   <% end %>
   </tbody>
