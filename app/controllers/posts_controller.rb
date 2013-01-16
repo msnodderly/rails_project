@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
+  before_filter :require_user, :only => :new
   def index
     @posts = Post.all
     @vote = Vote.new
   end
+
 
   def new
     @post = Post.new

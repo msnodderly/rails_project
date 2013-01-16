@@ -1,7 +1,6 @@
 <h1>Submit a new link</h1>
 
 <%= form_for @post, :url => { :action => "create" } do |f| %>
-
 <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
