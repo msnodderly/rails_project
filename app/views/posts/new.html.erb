@@ -12,9 +12,10 @@
       </ul>
     </div>
 <% end %>
-  <%= f.label(:url, "URL") %>
-  <%= f.text_field :url %>
   <%= f.label(:title, "Title") %>
   <%= f.text_field :title  %><br>
+  <%= f.label(:url, "URL") %>
+  <%= f.text_field :url %>
+  <br>
   <%= f.submit "Submit Link", :class => "btn " %>
 <% end %>
