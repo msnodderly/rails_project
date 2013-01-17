@@ -1,6 +1,16 @@
-<h1>Recent activity for <%= @user.username %> </h1>
+<h1><%= @user.username %> </h1>
 
 <div class="container">
+<h3>User info</h3>
+<ul>
+<li> Member since <%= @user.created_at.to_date %></li>
+<li> <%= @user.posts.count %> posts </li>
+<li> <%= @user.comments.count %> comments </li>
+</div>
+</ul>
+
+<div class="container">
+<h3>Recent activity</h3>
   <div class="span-8">
     <div style="margin-bottom: 5px;" class="lead">Posts</div>
     <table class="table table-striped">
