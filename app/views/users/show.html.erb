@@ -1,4 +1,4 @@
-<h1>User info for <%= @user.username %> </h1>
+<h1>Recent activity for <%= @user.username %> </h1>
 
 <div class="container">
   <div class="span-8">
@@ -7,7 +7,7 @@
     <tbody>
   
     <% if @user.posts %>
-    <% @user.posts.each do |post| %>
+    <% @user.posts.order("created_at").limit(10).each do |post| %>
     <tr> <td>
             <%= link_to post.title, display_url(post) %>&nbsp;&nbsp;
             <br>
@@ -28,7 +28,7 @@
     <div style="margin-bottom: 5px;" class="lead">Comments</div>
     <table class="table table-striped">
     <tbody>
-    <% @user.comments.each do |comment| %>
+    <% @user.comments.order("created_at").limit(10).each do |comment| %>
     <tr> <td>
             <%= link_to comment.post.title, comment.post %>&nbsp;&nbsp;
             <br>
@@ -46,7 +46,7 @@
     <div style="margin-bottom: 5px;" class="lead">Votes</div>
     <table class="table table-striped">
     <tbody>
-    <% @user.votes.each do |vote| %>
+    <% @user.votes.order("created_at").limit(10).each do |vote| %>
     <tr> <td>
             <%= vote.vote %>
             <%= link_to vote.post.title, vote.post %>&nbsp;&nbsp;
