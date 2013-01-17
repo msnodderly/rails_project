@@ -8,7 +8,7 @@
       <div style="margin-bottom: 5px;" class="lead"><%= link_to @post.title, @post.url %></div>
       <div class="muted" >(<%= domain %>)</div>
       <% if @post.user then %>
-         Submitted by <%= @post.user.username  %>
+         Submitted by <%= link_to  @post.user.username, @post.user %>
       <% end %>
       <div class="pull-left">
         <%= pluralize(@post.points, "point") %> |
@@ -39,7 +39,7 @@
   <% @post.comments.each do |comment| %>
     <tr>
       
-      <td><strong><%= comment.user.username %>:</strong>
+      <td><strong><%= link_to comment.user.username, comment.user%>:</strong>
         <blockquote><%= comment.content %></blockquote>
       </td>
     </tr> 

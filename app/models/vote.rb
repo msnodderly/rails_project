@@ -7,5 +7,11 @@ class Vote < ActiveRecord::Base
         :message => "%{value} is not a valid vote" }
 
   belongs_to :post
+  belongs_to :user
+
+  def duplicate?
+      Vote.where(post_id: post_id, user_id: user_id, vote: vote).last
+  end
+
 
 end

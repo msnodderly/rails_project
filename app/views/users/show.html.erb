@@ -1,0 +1,65 @@
+<h1>User info for <%= @user.username %> </h1>
+
+<div class="container">
+  <div class="span-8">
+    <div style="margin-bottom: 5px;" class="lead">Posts</div>
+    <table class="table table-striped">
+    <tbody>
+  
+    <% if @user.posts %>
+    <% @user.posts.each do |post| %>
+    <tr> <td>
+            <%= link_to post.title, display_url(post) %>&nbsp;&nbsp;
+            <br>
+            <div class="badge <%= "badge-info" if post.points > 0 %>"<%= "style='color:#ddd'" if post.points < 0%> >
+              <%= pluralize(post.points, "point") %>
+            </div>
+            <div class="badge <%= "badge-info" if post.comments.count > 0 %> "  >
+              <%= link_to "#{pluralize(post.comments.count, 'comment')}" , post, {:style=>'color:#FFF;'} %>
+            </div>
+    </td> </tr> 
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+  <% end %>
+  <% if @user.comments %>
+  <div class="span-8">
+    <div style="margin-bottom: 5px;" class="lead">Comments</div>
+    <table class="table table-striped">
+    <tbody>
+    <% @user.comments.each do |comment| %>
+    <tr> <td>
+            <%= link_to comment.post.title, comment.post %>&nbsp;&nbsp;
+            <br>
+            <div>
+            <%= comment.content %>
+            </div>
+    </td> </tr> 
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+  <% end %>
+  <% if @user.votes %>
+  <div class="span-8">
+    <div style="margin-bottom: 5px;" class="lead">Votes</div>
+    <table class="table table-striped">
+    <tbody>
+    <% @user.votes.each do |vote| %>
+    <tr> <td>
+            <%= vote.vote %>
+            <%= link_to vote.post.title, vote.post %>&nbsp;&nbsp;
+            </div>
+    </td> </tr> 
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+  <% end %>
+
+
+
+</div>
+
+

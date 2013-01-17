@@ -16,6 +16,8 @@ CourseProject::Application.routes.draw do
   post 'login' => 'sessions#create', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
 
+  match 'user/:id' => 'users#show', :as => :user
+
   resources :users, only: [:create]
     
   

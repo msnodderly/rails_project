@@ -9,6 +9,7 @@
   <% @posts.sort { |a,b| b.points <=> a.points }.each do |post| %>
     <tr >
         <td><% domain = post.url.split("/")[2] %>
+          <% if not logged_in? or not current_user.votes.where(post_id: post.id).first %>
           <%= form_for @vote do |f| %>
             <%= f.hidden_field(:vote, :value => "1") %>
             <%= f.hidden_field(:post_id, :value => post.id ) %>
@@ -19,6 +20,7 @@
             <%= f.hidden_field(:vote, :value => "-1") %>
             <%= f.hidden_field(:post_id, :value => post.id ) %>
             <%= f.submit "- ", :class => "btn", :style=>'padding: 8px;'   %>
+          <% end %>
           <% end %>
         
         </td>
@@ -34,7 +36,7 @@
             </div>
             <div>
               <% if post.user then %>
-              Submitted by <%= post.user.username  %>
+              Submitted by <%= link_to post.user.username, post.user %>
               <% end %>
             </div>
         </td>
@@ -43,4 +45,3 @@
   </tbody>
 </table>
 <br>
-
