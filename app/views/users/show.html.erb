@@ -6,6 +6,9 @@
 <li> Member since <%= @user.created_at.to_date %></li>
 <li> <%= @user.posts.count %> posts </li>
 <li> <%= @user.comments.count %> comments </li>
+<li> Twitter handle: <%= link_to @user.twitter.to_s, "http://twitter.com/#{@user.twitter.to_s}"  %> </li>
+
+
 </div>
 </ul>
 
@@ -67,9 +70,25 @@
     </table>
   </div>
   <% end %>
-
-
-
 </div>
+
+<% if @user.twitter %>
+<div class="container">
+  <h3>Latest Twitter Posts for <%= @user.twitter.to_s %></h3>
+  <div class="span-8">
+    <table class="table table-striped">
+    <tbody>
+    <% Twitter.user_timeline("#{@user.twitter.to_s}").each do |tweet| %>
+    <tr> <td>
+        <div>
+          <%= link_to tweet.text, "http://twitter.com/#{@user.twitter.to_s}/status/#{tweet.id}" %> 
+        </div>
+    </td> </tr> 
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
+<% end %>
 
 
